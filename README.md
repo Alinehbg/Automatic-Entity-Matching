@@ -77,11 +77,11 @@ The subnetworks play a crucial role in entity matching as they capture the chara
 Different architectures were tested, such as two RNN-layers with or without normalization, a transformer-based model, etc. 
 
 The architecture with the best performance is shown in figure 6 and consisted of: 
-- an embedding layer: embeds each character into a representation vector.
-- a bidirectional Gated Recurrent Unit (GRU) layer: processes sequential data in both forward and backward directions. It combines the information from past and future time steps to generate a comprehensive representation.  This layer can therefore understand the full context of the input. 
-- an attention layer: applies attention mechanism by making a weighted sum of character representations.
-- a drop_out layer: prevents overfitting
-- a dense layer: performs a linear transformation on the attention output layer
+- *an embedding layer*: embeds each character into a representation vector.
+- *a bidirectional Gated Recurrent Unit (GRU) layer*: processes sequential data in both forward and backward directions. It combines the information from past and future time steps to generate a comprehensive representation.  This layer can therefore understand the full context of the input. 
+- *an attention layer*: applies attention mechanism by making a weighted sum of character representations.
+- *a drop_out layer*: prevents overfitting
+- *a dense layer*: performs a linear transformation on the attention output layer
 
 <img width="522" alt="image" src="https://github.com/Alinehbg/Automatic-Entity-Matching/assets/116564531/337392a5-fc6d-4785-b5e8-0da2a71ef34b">
 
@@ -91,11 +91,11 @@ This proposed architecture performed really well on  our training and validation
 
 # Evaluation
 In order to evaluate our model we used different metrics. We took into consideration:
-- Accuracy: To prevent overfitting, we had to make sure that the gap between the accuracies on both training and validation dataset was not too big.
-- Binary cross-entropy: we are looking to minimize the loss.
-- Recall: It measures the proportion of relevant entities that are correctly identified by the matching model. It calculates the ratio of true positives to the sum of true positives and false negatives. 
-- Precision: It measures the accuracy of the model in identifying positive matches. A higher precision indicates fewer false positives.
-- Area Under the Curve (AUC): overall performance of the model in terms of its ability to rank true matches higher than non-matches
+-* Accuracy*: To prevent overfitting, we had to make sure that the gap between the accuracies on both training and validation dataset was not too big.
+- *Binary cross-entropy*: we are looking to minimize the loss.
+- *Recall*: It measures the proportion of relevant entities that are correctly identified by the matching model. It calculates the ratio of true positives to the sum of true positives and false negatives. 
+- *Precision*: It measures the accuracy of the model in identifying positive matches. A higher precision indicates fewer false positives.
+- *Area Under the Curve (AUC)*: overall performance of the model in terms of its ability to rank true matches higher than non-matches
 In our project, to align our model with Société Générale’s conservative position, we mainly took into consideration the accuracy and the precision. Our aim was to reduce the false positive while not missing any more true negative (i.e. not creating false negatives). Therefore, it was a trade-off between false positives and false negatives: we were aiming for the lowest false positive rate that does not create false negatives.
 AUC was also important in our process of evaluating the performance of our model.  In entity matching, the model needs to correctly prioritize and rank potential matches to optimize the matching process. Our AUC indicates that the model can effectively discriminate between matches and non-matches, facilitating efficient and accurate entity matching.
 We achieved the following performance:
